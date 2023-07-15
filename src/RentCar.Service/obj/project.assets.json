@@ -1,0 +1,109 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "RentCar.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "RentCar.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RentCar.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RentCar.DataAccess.dll": {}
+        }
+      },
+      "RentCar.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/RentCar.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RentCar.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RentCar.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../RentCar.DataAccess/RentCar.DataAccess.csproj",
+      "msbuildProject": "../RentCar.DataAccess/RentCar.DataAccess.csproj"
+    },
+    "RentCar.Domain/1.0.0": {
+      "type": "project",
+      "path": "../RentCar.Domain/RentCar.Domain.csproj",
+      "msbuildProject": "../RentCar.Domain/RentCar.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "RentCar.DataAccess >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\User\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
+      "projectName": "RentCar.Service",
+      "projectPath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.DataAccess\\RentCar.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.DataAccess\\RentCar.DataAccess.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
