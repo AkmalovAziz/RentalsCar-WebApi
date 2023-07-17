@@ -7,15 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RentCar.Domain\RentCar.Domain.csproj" />
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="Npgsql" Version="7.0.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Utils\" />
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\RentCar.Domain\RentCar.Domain.csproj" />
   </ItemGroup>
 
 </Project>

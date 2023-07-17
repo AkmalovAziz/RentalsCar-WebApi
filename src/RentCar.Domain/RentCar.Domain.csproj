@@ -6,13 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Constans\" />
-    <Folder Include="Entities\Rentals\" />
-    <Folder Include="Entities\Clients\" />
-    <Folder Include="Entities\Cars\" />
-    <Folder Include="Entities\Transactions\" />
-    <Folder Include="Enums\" />
-  </ItemGroup>
-
 </Project>

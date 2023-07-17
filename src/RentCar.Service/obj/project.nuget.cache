@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "a0AAhwmEIFVhxufBPK4rwKtHw8eLSzR4h1Mc/Z000NuRMJzG9jwqzBlb6fAfyKjif7JmxjUv4nJZLHLZosobow==",
+  "dgSpecHash": "waIF9VVsoy++h82Ga/4ecbMg0h7spRkqPYTMDc340B6pDAWi9YfQ6yS9ebD5ZnchMfxto2JPzITz7A8vAjyYVw==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\npgsql\\7.0.4\\npgsql.7.0.4.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
