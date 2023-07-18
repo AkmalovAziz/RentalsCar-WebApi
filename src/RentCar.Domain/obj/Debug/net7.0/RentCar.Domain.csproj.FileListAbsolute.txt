@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\bin\Debug\net7.0\RentCar.Domain.deps.json
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\bin\Debug\net7.0\RentCar.Domain.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\bin\Debug\net7.0\RentCar.Domain.pdb
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.AssemblyInfo.cs
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\refint\RentCar.Domain.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\RentCar.Domain.pdb
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.Domain\obj\Debug\net7.0\ref\RentCar.Domain.dll

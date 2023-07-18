@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "NYC38Fgo73+SGBTL3qpCJWu9BK5SEDvIymDUlYbUvb0=",
+  "Source": "RentCar.WebApi",
+  "BasePath": "_content/RentCar.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RentCar.WebApi\\wwwroot",
+      "Source": "RentCar.WebApi",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\",
+      "BasePath": "_content/RentCar.WebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

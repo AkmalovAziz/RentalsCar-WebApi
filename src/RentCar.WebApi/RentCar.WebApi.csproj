@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="wwwroot\Media\Audios\" />
     <Folder Include="wwwroot\Media\Documentos\" />
     <Folder Include="wwwroot\Media\Videos\" />
