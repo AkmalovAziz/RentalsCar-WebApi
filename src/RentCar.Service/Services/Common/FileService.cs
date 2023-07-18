@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
 using RentCar.Service.Common.Helpers;
 using RentCar.Service.Interfaces.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Services.Common;
 
@@ -17,10 +11,10 @@ public class FileService : IFileService
     private readonly string AVATAR = "avatar";
     private readonly string ROOTPATH;
 
-    public FileService(IWebHostEnvironment env)
-    {
-        ROOTPATH = env.WebRootPath;
-    }
+    //public FileService(IWebHostEnvironment env)
+    //{
+    //    ROOTPATH = env.WebRootPath;
+    //}
 
     public async Task<bool> DeleteImageAsync(string subpath)
     {

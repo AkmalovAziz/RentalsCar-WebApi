@@ -40,3 +40,4 @@ C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\refi
 C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\RentCar.WebApi.pdb
 C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\RentCar.WebApi.genruntimeconfig.cache
 C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\ref\RentCar.WebApi.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\FluentValidation.dll
