@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RentCar.DataAccess.Utils;
 using RentCar.Service.Dtos.Cars;
 using RentCar.Service.Interfaces.Cars;
+using RentCar.Service.Validators.Dtos.Cars;
 
 namespace RentCar.WebApi.Controllers;
 
@@ -21,7 +22,10 @@ public class CarController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CraetAsync([FromForm] CarsCreateDto dto)
     {
-        return Ok(_service.CreateAsync(dto));
+        var createValidator = new CarCreateValidators();
+        var validatorResult = createValidator.Validate(dto);
+        if (validatorResult.IsValid) return Ok(_service.CreateAsync(dto));
+        else return BadRequest(validatorResult.Errors);
     }
 
     [HttpGet("{carId}")]
@@ -38,7 +42,12 @@ public class CarController : ControllerBase
 
     [HttpPut("{carId}")]
     public async Task<IActionResult> UpdateAsync(long carId, [FromForm] CarsUpdatedto dto)
-        => Ok(await _service.UpdateAsync(carId, dto));
+    {
+        CarupdateValidators validationRules = new CarupdateValidators();
+        var validatorResult = validationRules.Validate(dto);
+        if (validatorResult.IsValid) return Ok(await _service.UpdateAsync(carId, dto));
+        else return BadRequest(validatorResult.Errors);
+    }
 
     [HttpGet("count")]
     public async Task<IActionResult> CountAsync()
