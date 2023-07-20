@@ -7,11 +7,6 @@ using RentCar.Service.Common.Helpers;
 using RentCar.Service.Dtos.Cars;
 using RentCar.Service.Interfaces.Cars;
 using RentCar.Service.Interfaces.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Services.CarServices;
 
@@ -81,7 +76,7 @@ public class CarService : ICarService
         car.PriceOfDate = dto.PriceOfDate;
         car.Description = dto.Description;
 
-        if(dto.ImagePath is not null)
+        if (dto.ImagePath is not null)
         {
             var imageresult = await _fileservis.DeleteImageAsync(car.ImagePath);
             if (imageresult == false) throw new ImageNotFoundException();

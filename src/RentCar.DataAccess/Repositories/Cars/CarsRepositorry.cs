@@ -2,11 +2,6 @@
 using RentCar.DataAccess.Interfaces.Cars;
 using RentCar.DataAccess.Utils;
 using RentCar.Domain.Entities.Cars;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.DataAccess.Repositories.Cars;
 

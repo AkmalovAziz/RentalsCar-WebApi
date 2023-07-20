@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RentCar.Domain.Entities.Transactions;
+﻿namespace RentCar.Domain.Entities.Transactions;
 
 public class Transaction : AudiTable
 {

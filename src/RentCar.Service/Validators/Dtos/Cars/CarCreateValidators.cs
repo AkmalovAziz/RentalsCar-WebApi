@@ -32,6 +32,5 @@ public class CarCreateValidators : AbstractValidator<CarsCreateDto>
         RuleFor(dto => dto.Description).NotNull().NotEmpty().WithMessage("Description filed is required!")
             .MinimumLength(20).WithMessage("Description filed is required!");
 
-
     }
 }

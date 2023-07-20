@@ -1,12 +1,7 @@
-﻿using FluentValidation;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using RentCar.Service.Dtos.Cars;
 using RentCar.Service.Validators.Dtos.Cars;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.UnitTest.ValidatorTest.Cars;
 

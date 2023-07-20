@@ -1,10 +1,4 @@
 ﻿using RentCar.DataAccess.Utils;
-using System;
-using System.Collections.Generic;
-using System.IO.Pipes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.DataAccess.Interfaces;
 

@@ -6,10 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\RentCar.DataAccess\RentCar.DataAccess.csproj" />
-  </ItemGroup>
-
+ 
   <ItemGroup>
     <Folder Include="Common\Attributes\" />
     <Folder Include="Common\Validations\" />
@@ -19,11 +16,13 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.6.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.32" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\RentCar.DataAccess\RentCar.DataAccess.csproj" />
   </ItemGroup>
 
-	<ItemGroup>
-		<FrameworkfReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
 
 </Project>
