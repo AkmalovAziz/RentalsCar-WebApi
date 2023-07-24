@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RentCar.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace RentCar.Domain.Entities.Clients;
 
@@ -16,6 +17,8 @@ public class Client : AudiTable
     public string DriverLicense { get; set; } = string.Empty;
 
     public bool IsMale { get; set; }
+
+    public UserRole Role { get; set; }
 
     public string ImagePath { get; set; } = string.Empty;
 

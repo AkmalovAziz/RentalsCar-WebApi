@@ -14,11 +14,14 @@ public class ClientService : IClientService
 {
     private IClientRepository _repository;
     private IFileService _fileservise;
+    private IPaginator _paginator;
 
-    public ClientService(IClientRepository clientRepository, IFileService fileService)
+    public ClientService(IClientRepository clientRepository, IFileService fileService,
+        IPaginator paginator)
     {
         this._repository = clientRepository;
         this._fileservise = fileService;
+        this._paginator = paginator;
     }
 
     public async Task<long> CountAsync() => await _repository.CountAsync();
@@ -33,6 +36,7 @@ public class ClientService : IClientService
         client.PhoneNumber = dto.PhoneNumber;
         client.IsMale = dto.IsMale;
         client.DriverLicense = dto.DriverLicense;
+        client.Role = dto.Role;
         client.Description = dto.Description;
         client.CreatedAt = TimeHelper.GetDateTime();
         client.UpdatedAt = TimeHelper.GetDateTime();
@@ -56,6 +60,8 @@ public class ClientService : IClientService
     public async Task<IList<Client>> GetAllAsync(Paginationparams @params)
     {
         var client = await _repository.GetAllAsync(@params);
+        var count = await _repository.CountAsync();
+        _paginator.Paginate(count, @params);
         return client;
     }
 

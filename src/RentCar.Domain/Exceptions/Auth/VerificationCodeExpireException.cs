@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RentCar.Domain.Exceptions.Auth;
+﻿namespace RentCar.Domain.Exceptions.Auth;
 
 public class VerificationCodeExpireException : ExpiredExceptions
 {
-	public VerificationCodeExpireException()
-	{
-		TitleMessage = "Verification code is expired!";
-	}
+    public VerificationCodeExpireException()
+    {
+        TitleMessage = "Verification code is expired!";
+    }
 }

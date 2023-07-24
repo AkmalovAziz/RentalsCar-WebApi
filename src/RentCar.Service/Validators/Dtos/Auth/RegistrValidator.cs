@@ -1,11 +1,5 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Identity;
 using RentCar.Service.Dtos.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Validators.Dtos.Auth;
 

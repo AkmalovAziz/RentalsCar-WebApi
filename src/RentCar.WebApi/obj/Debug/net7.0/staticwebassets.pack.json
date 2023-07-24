@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg",
+      "PackagePath": "staticwebassets\\media\\images\\IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.RentCar.WebApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.RentCar.WebApi.props",
+      "PackagePath": "build\\RentCar.WebApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.RentCar.WebApi.props",
+      "PackagePath": "buildMultiTargeting\\RentCar.WebApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.RentCar.WebApi.props",
+      "PackagePath": "buildTransitive\\RentCar.WebApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

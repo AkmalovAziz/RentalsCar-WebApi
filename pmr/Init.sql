@@ -30,6 +30,9 @@ create table clients (
 	drivers_license text,
 	is_male bool,
 	image_path text,
+	password_hash text,
+	salt text,
+	role text,
 	description text,
 	created_at timestamp with time zone,
 	updated_at timestamp with time zone
@@ -40,6 +43,7 @@ create table transactions (
 	car_id bigint references cars(id),
 	client_id bigint references clients(id),
 	rental_id bigint references rentals(id),
+	total_price real,
 	description text,
 	created_at timestamp with time zone,
 	updated_at timestamp with time zone

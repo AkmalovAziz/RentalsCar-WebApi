@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NYC38Fgo73+SGBTL3qpCJWu9BK5SEDvIymDUlYbUvb0=",
+  "Hash": "mU3taso7ML+0zoLzwrMcdldIDtm+7Qd4NUNOgr80Ao0=",
   "Source": "RentCar.WebApi",
   "BasePath": "_content/RentCar.WebApi",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg",
+      "SourceId": "RentCar.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\",
+      "BasePath": "_content/RentCar.WebApi",
+      "RelativePath": "media/images/IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\images\\IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg"
+    }
+  ]
 }

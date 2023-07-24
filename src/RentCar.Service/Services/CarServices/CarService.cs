@@ -7,6 +7,7 @@ using RentCar.Service.Common.Helpers;
 using RentCar.Service.Dtos.Cars;
 using RentCar.Service.Interfaces.Cars;
 using RentCar.Service.Interfaces.Common;
+using RentCar.Service.Services.Common;
 
 namespace RentCar.Service.Services.CarServices;
 
@@ -14,11 +15,14 @@ public class CarService : ICarService
 {
     private IFileService _fileservis;
     private ICarRepository _repository;
+    private IPaginator _paginator;
 
-    public CarService(ICarRepository carRepository, IFileService fileService)
+    public CarService(ICarRepository carRepository, IFileService fileService,
+        IPaginator paginator)
     {
         this._fileservis = fileService;
         this._repository = carRepository;
+        this._paginator = paginator;
     }
 
     public async Task<long> CountAsync() => await _repository.CountAsync();
@@ -55,6 +59,8 @@ public class CarService : ICarService
     public async Task<IList<Car>> GetAllAsync(Paginationparams @params)
     {
         var car = await _repository.GetAllAsync(@params);
+        var count = await _repository.CountAsync();
+        _paginator.Paginate(count, @params);
         return car;
     }
 

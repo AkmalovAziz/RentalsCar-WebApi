@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using RentCar.Service.Dtos.Rentals;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Validators.Dtos.Rentals;
 

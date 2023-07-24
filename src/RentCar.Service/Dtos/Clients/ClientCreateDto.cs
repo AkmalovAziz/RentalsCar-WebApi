@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using RentCar.Domain.Enums;
 
 namespace RentCar.Service.Dtos.Clients;
 
@@ -13,6 +14,8 @@ public class ClientCreateDto
     public string DriverLicense { get; set; } = string.Empty;
 
     public bool IsMale { get; set; }
+
+    public UserRole Role { get; set; }
 
     public IFormFile ImagePath { get; set; } = default!;
 

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 using RentCar.DataAccess.Interfaces.Clients;
 using RentCar.Domain.Entities.Clients;
 using RentCar.Domain.Exceptions.Auth;
@@ -44,7 +43,7 @@ public class AuthService : IAuthService
         if (_memorycache.TryGetValue(REGISTER_CACHE_KEY + dto.PhoneNumber, out RegistrDto cachedRegisterDto))
         {
             cachedRegisterDto.FirstName = cachedRegisterDto.FirstName;
-            _memorycache.Remove(dto.PhoneNumber);
+            _memorycache.Remove(REGISTER_CACHE_KEY + dto.PhoneNumber);
         }
         else _memorycache.Set(REGISTER_CACHE_KEY + dto.PhoneNumber, dto,
             TimeSpan.FromMinutes(CACHED_MINUTES_FOR_REGISTER));
@@ -72,7 +71,7 @@ public class AuthService : IAuthService
                 TimeSpan.FromMinutes(CACHED_MINUTES_FOR_VERIFICATION));
 
             SmsMessage smsMessage = new SmsMessage();
-            smsMessage.Title = "Agile Shop";
+            smsMessage.Title = "Rent Car";
             smsMessage.Content = "Your verification code : " + verificationDto.Code;
             smsMessage.Recipient = phone.Substring(1);
 
@@ -97,7 +96,7 @@ public class AuthService : IAuthService
                     if (dbResult is true)
                     {
                         var user = await _clientRepository.GetByPhoneNumberAsync(phone);
-                        string token = await _token.GeneratedToken(user);
+                        string token = _token.GeneratedToken(user);
                         return (Result: true, Token: token);
                     }
                     else return (Result: false, Token: "");
@@ -141,7 +140,7 @@ public class AuthService : IAuthService
         var hasherResult = PasswordHasher.Verify(loginDto.Password, user.PasswordHAsh, user.Salt);
         if (hasherResult == false) throw new PasswordNotMatchExceptions();
 
-        string token = await _token.GeneratedToken(user);
+        string token = _token.GeneratedToken(user);
         return (Result: true, Token: token);
     }
 }

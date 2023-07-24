@@ -4,6 +4,7 @@ using RentCar.Domain.Entities.Rentals;
 using RentCar.Domain.Exceptions.Rental;
 using RentCar.Service.Common.Helpers;
 using RentCar.Service.Dtos.Rentals;
+using RentCar.Service.Interfaces.Common;
 using RentCar.Service.Interfaces.Rentals;
 
 namespace RentCar.Service.Services.Rentals;
@@ -11,10 +12,13 @@ namespace RentCar.Service.Services.Rentals;
 public class RentalService : IRentalService
 {
     private IRentalRepository _repository;
+    private IPaginator _paginator;
 
-    public RentalService(IRentalRepository rentalRepository)
+    public RentalService(IRentalRepository rentalRepository,
+        IPaginator paginator)
     {
         this._repository = rentalRepository;
+        this._paginator = paginator;
     }
 
     public async Task<long> CountAsync() => await _repository.CountAsync();
@@ -45,7 +49,12 @@ public class RentalService : IRentalService
     }
 
     public async Task<IList<Rental>> GetAllAsync(Paginationparams @params)
-        => await _repository.GetAllAsync(@params);
+    {
+        var rental = await _repository.GetAllAsync(@params);
+        var count = await _repository.CountAsync();
+        _paginator.Paginate(count, @params);
+        return rental;
+    }
 
     public async Task<Rental> GetByIdAsync(long rentalId)
         => await _repository.GetByIdAsync(rentalId);

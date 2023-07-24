@@ -1,12 +1,6 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Identity;
 using RentCar.Service.Common.Helpers;
 using RentCar.Service.Dtos.Clients;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Validators.Dtos.Clients;
 
@@ -32,7 +26,7 @@ public class ClientCreateValidators : AbstractValidator<ClientCreateDto>
 
         int maxImageSizeMB = 3;
         RuleFor(dto => dto.ImagePath).NotEmpty().NotNull().WithMessage("Image field is required");
-        RuleFor(dto => dto.ImagePath.Length).LessThan(maxImageSizeMB * 1024 * 1024).WithMessage($"Image size must be less than {maxImageSizeMB} MB");
+        RuleFor(dto => dto.ImagePath.Length).LessThan(maxImageSizeMB * 1024 * 1024+1).WithMessage($"Image size must be less than {maxImageSizeMB} MB");
         RuleFor(dto => dto.ImagePath.FileName).Must(predicate =>
         {
             FileInfo fileInfo = new FileInfo(predicate);

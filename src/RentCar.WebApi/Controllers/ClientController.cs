@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RentCar.DataAccess.Utils;
 using RentCar.Service.Dtos.Clients;
 using RentCar.Service.Interfaces.Clients;
 using RentCar.Service.Validators.Dtos.Clients;
+using System.Data;
 
 namespace RentCar.WebApi.Controllers
 {
@@ -19,6 +21,8 @@ namespace RentCar.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> CreateAsync([FromForm] ClientCreateDto dto)
         {
             var clientcreatevalidator = new ClientCreateValidators();
@@ -28,18 +32,26 @@ namespace RentCar.WebApi.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
+
         public async Task<IActionResult> GetAllAsync([FromQuery] int page = 1)
             => Ok(await _service.GetAllAsync(new Paginationparams(page, maxPageSize)));
 
         [HttpGet("{clientId}")]
+        [AllowAnonymous]
+
         public async Task<IActionResult> GetByIdAsync(long clientId)
             => Ok(await _service.GetByIdAsync(clientId));
 
         [HttpDelete("{clientId}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> DeleteAsync(long clientId)
             => Ok(await _service.DeleteAsync(clientId));
 
         [HttpPut("{clientId}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> UpdateAsync(long clientId, [FromForm] ClientUpdateDto dto)
         {
             var updatevalidator = new ClientUpdateValidators();
@@ -49,6 +61,7 @@ namespace RentCar.WebApi.Controllers
         }
 
         [HttpGet("count")]
+        [AllowAnonymous]
         public async Task<IActionResult> CountAsync()
             => Ok(await _service.CountAsync());
     }

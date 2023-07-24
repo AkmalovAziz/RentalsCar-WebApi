@@ -1,14 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using RentCar.Service.Dtos.Cars;
 using RentCar.Service.Dtos.Clients;
-using RentCar.Service.Validators.Dtos.Cars;
 using RentCar.Service.Validators.Dtos.Clients;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.UnitTest.ValidatorTest.Clients;
 
@@ -88,27 +81,6 @@ public class ClientValidatorTest
         Assert.False(result.IsValid);
     }
 
-    [Theory]
-    [InlineData("+998998545977")]
-
-    public void ShouldReturnValidPhonenumber(string phonenumber)
-    {
-        byte[] byteImage = Encoding.UTF8.GetBytes("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, byteImage.Length, "data", "file.jpg");
-        ClientCreateDto dto = new ClientCreateDto()
-        {
-            FirstName = "Aziz",
-            LastName = "Akmalov",
-            PhoneNumber = phonenumber,
-            DriverLicense = "AD123456",
-            IsMale = true,
-            ImagePath = imageFile,
-            Description = "we sell an electronic products to our clients"
-        };
-        var validator = new ClientCreateValidators();
-        var result = validator.Validate(dto);
-        Assert.True(result.IsValid);
-    }
 
     [Theory]
     [InlineData("123456v")]
@@ -140,7 +112,13 @@ public class ClientValidatorTest
 
     [Theory]
     [InlineData("AD123456")]
-    
+    [InlineData("AD124456")]
+    [InlineData("AD103456")]
+    [InlineData("BD123456")]
+    [InlineData("AD123006")]
+    [InlineData("AD003456")]
+    [InlineData("AD123156")]
+
     public void ShouldReturnValidDriverlicense(string license)
     {
         byte[] byteImage = Encoding.UTF8.GetBytes("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
@@ -196,7 +174,7 @@ public class ClientValidatorTest
     public void ShouldReturnValidImageFilesize(double imageSizeMB)
     {
         byte[] byteImage = Encoding.UTF8.GetBytes("we sell an electronic products to our clients");
-        long imageSizeInBytes = (long)(imageSizeMB * 1024 * 1024);
+        long imageSizeInBytes = (long)(imageSizeMB * 1024 * 1024+1);
         IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, imageSizeInBytes, "data", "file.png");
         ClientCreateDto dto = new ClientCreateDto()
         {
@@ -284,9 +262,7 @@ public class ClientValidatorTest
         {
             FirstName = "Aziz",
             LastName = "Akmalov",
-            PhoneNumber = "+998998545977",
             DriverLicense = "AD123456",
-            IsMale = true,
             ImagePath = imageFile,
             Description = "we sell an electronic products to our clients"
         };

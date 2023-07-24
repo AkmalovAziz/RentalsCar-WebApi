@@ -2,8 +2,6 @@
 using RentCar.DataAccess.Interfaces.Clients;
 using RentCar.DataAccess.Utils;
 using RentCar.Domain.Entities.Clients;
-using System.Data.Common;
-using System.Numerics;
 using static Dapper.SqlMapper;
 
 namespace RentCar.DataAccess.Repositories.Clients;
@@ -35,8 +33,8 @@ public class ClientRepository : BaseRepository, IClientRepository
         {
             await _connecting.OpenAsync();
             string query = "INSERT INTO public.clients( " +
-                   "first_name, last_name, phone_number, drivers_license, is_male, image_path, password_hash, salt, description, created_at, updated_at) " +
-                   "VALUES(@FirstName, @LastName, @PhoneNumber, @DriversLicense, @IsMale, @ImagePath, @PasswordHAsh, @Salt, @Description, @CreatedAt, @UpdatedAt); ";
+                   "first_name, last_name, phone_number, drivers_license, is_male, image_path, password_hash, salt, role, description, created_at, updated_at) " +
+                   "VALUES(@FirstName, @LastName, @PhoneNumber, @DriversLicense, @IsMale, @ImagePath, @PasswordHAsh, @Salt, @Role, @Description, @CreatedAt, @UpdatedAt); ";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }

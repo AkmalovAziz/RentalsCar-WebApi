@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentCar.Service.Dtos.Auth;
 using RentCar.Service.Interfaces.Auth;
-using RentCar.Service.Validators.Dtos.Auth;
 using RentCar.Service.Validators;
+using RentCar.Service.Validators.Dtos.Auth;
 
 namespace RentCar.WebApi.Controllers;
 
@@ -18,6 +18,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
+    [AllowAnonymous]
     public async Task<IActionResult> RegisterAsync([FromForm] RegistrDto registerDto)
     {
         var validator = new RegistrValidator();
@@ -31,6 +32,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register/send-code")]
+    [AllowAnonymous]
     public async Task<IActionResult> SendCodeRegisterAsync(string phone)
     {
         var result = PhoneNumberValidators.IsValid(phone);
@@ -41,6 +43,8 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register/verify")]
+    [AllowAnonymous]
+
     public async Task<IActionResult> VerifyRegisterAsync([FromBody] VerifyDto verifyRegisterDto)
     {
         var serviceResult = await _authService.VerifyRegisterAsync(verifyRegisterDto.PhoneNumber, verifyRegisterDto.Code);
@@ -48,6 +52,8 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
+    [AllowAnonymous]
+
     public async Task<IActionResult> LoginAsync([FromBody] LoginDto loginDto)
     {
         var validator = new LoginValidator();

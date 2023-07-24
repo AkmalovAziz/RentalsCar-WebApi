@@ -3,13 +3,9 @@ using Microsoft.IdentityModel.Tokens;
 using RentCar.Domain.Entities.Clients;
 using RentCar.Service.Common.Helpers;
 using RentCar.Service.Interfaces.Auth;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Services.AuthServices;
 
@@ -20,7 +16,8 @@ public class TokenService : ITokenService
     {
         _config = configuration.GetSection("Jwt");
     }
-    public async Task<string> GeneratedToken(Client client)
+
+    public string GeneratedToken(Client client)
     {
         var identityClaims = new Claim[]
         {
@@ -28,6 +25,7 @@ public class TokenService : ITokenService
             new Claim("FirstName", client.FirstName),
             new Claim("Lastname", client.LastName),
             new Claim(ClaimTypes.MobilePhone, client.PhoneNumber),
+            new Claim(ClaimTypes.Role, client.Role.ToString())
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["SecurityKey"]!));
@@ -43,4 +41,5 @@ public class TokenService : ITokenService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
 }

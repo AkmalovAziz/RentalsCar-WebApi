@@ -1,11 +1,6 @@
 ﻿using FluentValidation;
 using RentCar.Service.Common.Helpers;
 using RentCar.Service.Dtos.Clients;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Service.Validators.Dtos.Clients;
 

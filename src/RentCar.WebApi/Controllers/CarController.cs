@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RentCar.DataAccess.Utils;
 using RentCar.Service.Dtos.Cars;
 using RentCar.Service.Interfaces.Cars;
@@ -19,6 +20,7 @@ public class CarController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CraetAsync([FromForm] CarsCreateDto dto)
     {
         var createValidator = new CarCreateValidators();
@@ -28,18 +30,25 @@ public class CarController : ControllerBase
     }
 
     [HttpGet("{carId}")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetByIdAsync(long carId)
         => Ok(await _service.GetByIdAsync(carId));
 
     [HttpDelete("{carId}")]
+    [Authorize(Roles = "Admin")]
+
     public async Task<IActionResult> DeleteAsync(long carId)
         => Ok(await _service.DeleteAsync(carId));
 
     [HttpGet]
+    [AllowAnonymous]
+
     public async Task<IActionResult> GetAllAsync([FromQuery] int page = 1)
         => Ok(await _service.GetAllAsync(new Paginationparams(page, maxPageSize)));
 
     [HttpPut("{carId}")]
+    [Authorize(Roles = "Admin")]
+
     public async Task<IActionResult> UpdateAsync(long carId, [FromForm] CarsUpdatedto dto)
     {
         CarupdateValidators validationRules = new CarupdateValidators();
@@ -49,6 +58,8 @@ public class CarController : ControllerBase
     }
 
     [HttpGet("count")]
+    [AllowAnonymous]
+
     public async Task<IActionResult> CountAsync()
         => Ok(await _service.CountAsync());
 }
