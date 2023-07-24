@@ -4,9 +4,9 @@ namespace RentCar.Domain.Entities.Rentals;
 
 public class Rental : AudiTable
 {
-    public DateTime StartDate { get; set; }
+    public string StartDate { get; set; } = string.Empty;
 
-    public DateTime EndDate { get; set; }
+    public string EndDate { get; set; } = string.Empty;
 
     public string Destination { get; set; } = string.Empty;
 

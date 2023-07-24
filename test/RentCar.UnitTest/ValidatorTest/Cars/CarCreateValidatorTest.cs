@@ -20,7 +20,7 @@ public class CarCreateValidatorTest
             Name = name,
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
+            Status = Domain.Enums.CarStatus.InRent,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -150,7 +150,7 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
+            Status = Domain.Enums.CarStatus.InRent,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -212,7 +212,7 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "Mazda",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
+            Status = Domain.Enums.CarStatus.InRent,
             Description = description,
             ImagePath = imageFile
         };

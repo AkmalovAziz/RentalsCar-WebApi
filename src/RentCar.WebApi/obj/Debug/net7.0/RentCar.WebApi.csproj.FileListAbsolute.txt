@@ -41,3 +41,10 @@ C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\Rent
 C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\RentCar.WebApi.genruntimeconfig.cache
 C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\obj\Debug\net7.0\ref\RentCar.WebApi.dll
 C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.WebApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

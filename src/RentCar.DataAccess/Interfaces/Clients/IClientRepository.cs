@@ -5,5 +5,5 @@ namespace RentCar.DataAccess.Interfaces.Clients;
 
 public interface IClientRepository : IRepository<Client, Client>, ISearch<Client>
 {
-
+    public Task<Client?> GetByPhoneNumberAsync(string phone);
 }

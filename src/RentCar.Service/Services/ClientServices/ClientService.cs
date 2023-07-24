@@ -28,11 +28,11 @@ public class ClientService : IClientService
     {
         string image = await _fileservise.UploadImageAsync(dto.ImagePath);
         Client client = new Client();
-        client.FirstNAme = dto.FirstNAme;
-        client.LastNAme = dto.LastNAme;
+        client.FirstName = dto.FirstName;
+        client.LastName = dto.LastName;
         client.PhoneNumber = dto.PhoneNumber;
-        client.IsMAle = dto.IsMAle;
-        client.DeliveyLicense = dto.DeliveryLicense;
+        client.IsMale = dto.IsMale;
+        client.DriverLicense = dto.DriverLicense;
         client.Description = dto.Description;
         client.CreatedAt = TimeHelper.GetDateTime();
         client.UpdatedAt = TimeHelper.GetDateTime();
@@ -72,11 +72,11 @@ public class ClientService : IClientService
         var client = await _repository.GetByIdAsync(clientId);
         if (client is null) throw new ClientNotFoundException();
 
-        client.FirstNAme = dto.FirstNAme;
-        client.LastNAme = dto.LastNAme;
+        client.FirstName = dto.FirstName;
+        client.LastName = dto.LastName;
         client.PhoneNumber = dto.PhoneNumber;
-        client.IsMAle = dto.IsMAle;
-        client.DeliveyLicense = dto.DeliveyLicense;
+        client.IsMale = dto.IsMale;
+        client.DriverLicense = dto.DriverLicense;
         client.Description = dto.Description;
 
         if (dto.ImagePath is not null)

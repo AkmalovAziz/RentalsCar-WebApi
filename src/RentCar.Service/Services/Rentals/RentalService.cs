@@ -55,11 +55,8 @@ public class RentalService : IRentalService
         var rental = await _repository.GetByIdAsync(rentalId);
         if (rental is null) throw new RentalNotFoundException();
 
-        rental.StartDate = dto.StartDate;
-        rental.EndDate = dto.EndDate;
         rental.Destination = dto.Destination;
         rental.Payment = dto.Payment;
-        rental.IsPayment = dto.IsPayment;
         rental.Description = dto.Description;
         rental.UpdatedAt = TimeHelper.GetDateTime();
 

@@ -9,4 +9,7 @@ public class Transaction : AudiTable
     public long RentalId { get; set; }
 
     public string Description { get; set; } = string.Empty;
+
+    public float TotalPrice { get; set; }
+
 }

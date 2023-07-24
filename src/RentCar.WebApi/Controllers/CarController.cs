@@ -23,7 +23,7 @@ public class CarController : ControllerBase
     {
         var createValidator = new CarCreateValidators();
         var validatorResult = createValidator.Validate(dto);
-        if (validatorResult.IsValid) return Ok(_service.CreateAsync(dto));
+        if (validatorResult.IsValid) return Ok(await _service.CreateAsync(dto));
         else return BadRequest(validatorResult.Errors);
     }
 

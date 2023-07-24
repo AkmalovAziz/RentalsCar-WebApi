@@ -8,6 +8,6 @@ public class BaseRepository
 
     public BaseRepository()
     {
-        this._connecting = new NpgsqlConnection("Host=localhost, Port=5432, Database=RentalsCar-db, User id=postgres, Password=1111");
+        this._connecting = new NpgsqlConnection("Host=localhost; Port=5432; Database=RentalsCar-db; User Id=postgres; Password=1111;");
     }
 }

@@ -2,6 +2,8 @@
 using RentCar.DataAccess.Interfaces.Clients;
 using RentCar.DataAccess.Utils;
 using RentCar.Domain.Entities.Clients;
+using System.Data.Common;
+using System.Numerics;
 using static Dapper.SqlMapper;
 
 namespace RentCar.DataAccess.Repositories.Clients;
@@ -33,8 +35,8 @@ public class ClientRepository : BaseRepository, IClientRepository
         {
             await _connecting.OpenAsync();
             string query = "INSERT INTO public.clients( " +
-                   "first_name, last_name, phone_number, drivers_license, is_male, image_path, description, created_at, updated_at) " +
-                   "VALUES(@FirstName, @LastName, @PhoneNumber, @DriversLicense, @IsMale, @ImagePath, @Description, @CreatedAt, @UpdatedAt); ";
+                   "first_name, last_name, phone_number, drivers_license, is_male, image_path, password_hash, salt, description, created_at, updated_at) " +
+                   "VALUES(@FirstName, @LastName, @PhoneNumber, @DriversLicense, @IsMale, @ImagePath, @PasswordHAsh, @Salt, @Description, @CreatedAt, @UpdatedAt); ";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }
@@ -106,7 +108,26 @@ public class ClientRepository : BaseRepository, IClientRepository
         }
     }
 
-    public Task<(int ItemsCount, IList<Client>)> SearchAsync(string search, Paginationparams @params)
+    public async Task<Client?> GetByPhoneNumberAsync(string phone)
+    {
+        try
+        {
+            await _connecting.OpenAsync();
+            string query = "SELECT * FROM users where phone_number = @PhoneNumber";
+            var data = await _connecting.QuerySingleAsync<Client>(query, new { PhoneNumber = phone });
+            return data;
+        }
+        catch
+        {
+            return null;
+        }
+        finally
+        {
+            await _connecting.CloseAsync();
+        }
+    }
+
+    public async Task<(int ItemsCount, IList<Client>)> SearchAsync(string search, Paginationparams @params)
     {
         throw new NotImplementedException();
     }

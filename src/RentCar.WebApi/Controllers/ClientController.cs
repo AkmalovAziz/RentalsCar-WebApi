@@ -2,6 +2,7 @@
 using RentCar.DataAccess.Utils;
 using RentCar.Service.Dtos.Clients;
 using RentCar.Service.Interfaces.Clients;
+using RentCar.Service.Validators.Dtos.Clients;
 
 namespace RentCar.WebApi.Controllers
 {
@@ -19,7 +20,12 @@ namespace RentCar.WebApi.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateAsync([FromForm] ClientCreateDto dto)
-            => Ok(await _service.CreateAsync(dto));
+        {
+            var clientcreatevalidator = new ClientCreateValidators();
+            var validatorResult = clientcreatevalidator.Validate(dto);
+            if (validatorResult.IsValid) return Ok(await _service.CreateAsync(dto));
+            else return BadRequest(validatorResult.Errors);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync([FromQuery] int page = 1)
@@ -35,7 +41,12 @@ namespace RentCar.WebApi.Controllers
 
         [HttpPut("{clientId}")]
         public async Task<IActionResult> UpdateAsync(long clientId, [FromForm] ClientUpdateDto dto)
-            => Ok(await _service.UpdateAsync(clientId, dto));
+        {
+            var updatevalidator = new ClientUpdateValidators();
+            var updateResult = updatevalidator.Validate(dto);
+            if (updateResult.IsValid) return Ok(await _service.UpdateAsync(clientId, dto));
+            else return BadRequest(updateResult.Errors);
+        }
 
         [HttpGet("count")]
         public async Task<IActionResult> CountAsync()

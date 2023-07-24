@@ -12,11 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Media\Audios\" />
-    <Folder Include="wwwroot\Media\Documentos\" />
-    <Folder Include="wwwroot\Media\Videos\" />
-    <Folder Include="wwwroot\Media\Images\" />
-    <Folder Include="wwwroot\Media\Avatars\" />
+    <Folder Include="wwwroot\media\Audios\" />
+    <Folder Include="wwwroot\media\Documentos\" />
+    <Folder Include="wwwroot\media\Videos\" />
+    <Folder Include="wwwroot\media\images\" />
   </ItemGroup>
 
   <ItemGroup>

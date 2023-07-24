@@ -31,7 +31,7 @@ public class Rentalrepository : BaseRepository, IRentalRepository
         {
             await _connecting.OpenAsync();
             string query = "INSERT INTO public.rentals(start_date, end_date, destination, payment_type, is_payment, description, created_at, updated_at) " +
-                "VALUES (@StartDate, @EndDate, @Destination, @PaymentType, @IsPayment, @Description, @CreatedAt, @UpdatedAt);";
+                "VALUES (@StartDate, @EndDate, @Destination, @Payment, @IsPayment, @Description, @CreatedAt, @UpdatedAt);";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }
@@ -70,7 +70,7 @@ public class Rentalrepository : BaseRepository, IRentalRepository
         {
             await _connecting.OpenAsync();
             string query = $"SELECT * FROM rentals Order by id desc " +
-                $"offset{@params.SkipCount()} limit{@params.PageSize};";
+                $"offset {@params.SkipCount()} limit {@params.PageSize}";
             var result = (await _connecting.QueryAsync<Rental>(query)).ToList();
             return result;
         }

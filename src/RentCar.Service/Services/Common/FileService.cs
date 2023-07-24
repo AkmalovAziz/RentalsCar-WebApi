@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using RentCar.Service.Common.Helpers;
 using RentCar.Service.Interfaces.Common;
 
@@ -6,15 +7,14 @@ namespace RentCar.Service.Services.Common;
 
 public class FileService : IFileService
 {
-    private readonly string IMAGE = "image";
+    private readonly string IMAGE = "images";
     private readonly string MEDIA = "media";
-    private readonly string AVATAR = "avatar";
     private readonly string ROOTPATH;
 
-    //public FileService(IWebHostEnvironment env)
-    //{
-    //    ROOTPATH = env.WebRootPath;
-    //}
+    public FileService(IWebHostEnvironment env)
+    {
+        ROOTPATH = env.WebRootPath;
+    }
 
     public async Task<bool> DeleteImageAsync(string subpath)
     {
@@ -35,7 +35,6 @@ public class FileService : IFileService
         string newImageName = MediaHelpers.MakeImageName(image.FileName);
         string subpath = Path.Combine(MEDIA, IMAGE, newImageName);
         string path = Path.Combine(ROOTPATH, subpath);
-
         var stream = new FileStream(path, FileMode.Create);
         await image.CopyToAsync(stream);
         stream.Close();

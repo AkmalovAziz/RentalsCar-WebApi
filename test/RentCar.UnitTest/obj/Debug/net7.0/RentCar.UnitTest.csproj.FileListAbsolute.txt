@@ -120,3 +120,9 @@ C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\obj\Debug\net7.0\r
 C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\obj\Debug\net7.0\RentCar.UnitTest.pdb
 C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\obj\Debug\net7.0\RentCar.UnitTest.genruntimeconfig.cache
 C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\obj\Debug\net7.0\ref\RentCar.UnitTest.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\test\RentCar.UnitTest\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

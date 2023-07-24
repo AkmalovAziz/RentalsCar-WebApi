@@ -16,7 +16,7 @@ public class CarCreateValidators : AbstractValidator<CarsCreateDto>
             .MinimumLength(3).WithMessage("Model must be more than 3 characters")
             .MaximumLength(50).WithMessage("Model must be less than 50 characters");
 
-        RuleFor(dto => dto.Status).NotNull().NotEmpty().WithMessage("Status filed is required!");
+        RuleFor(dto => dto.Status).NotEmpty().WithMessage("Status filed is required!");
 
         int maxImageSizeMB = 3;
         RuleFor(dto => dto.ImagePath).NotEmpty().NotNull().WithMessage("Image field is required");

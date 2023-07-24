@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using RentCar.DataAccess.Common.Interfaces;
 using RentCar.DataAccess.Interfaces.Cars;
 using RentCar.DataAccess.Utils;
 using RentCar.Domain.Entities.Cars;
@@ -105,11 +106,6 @@ public class CarsRepositorry : BaseRepository, ICarRepository
         }
     }
 
-    public async Task<(int ItemsCount, IList<Car>)> SearchAsync(string search, Paginationparams @params)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<int> UpdateAsync(long id, Car entity)
     {
         try
@@ -129,5 +125,10 @@ public class CarsRepositorry : BaseRepository, ICarRepository
         {
             await _connecting.CloseAsync();
         }
+    }
+
+    Task<(int ItemsCount, IList<Car>)> ISearch<Car>.SearchAsync(string search, Paginationparams @params)
+    {
+        throw new NotImplementedException();
     }
 }
