@@ -20,7 +20,7 @@ public class CarController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles ="Admin")]
     public async Task<IActionResult> CraetAsync([FromForm] CarsCreateDto dto)
     {
         var createValidator = new CarCreateValidators();
@@ -29,12 +29,14 @@ public class CarController : ControllerBase
         else return BadRequest(validatorResult.Errors);
     }
 
-    [HttpGet("{carId}")]
+    [HttpGet]
+    [Route("{carId}")]
     [AllowAnonymous]
     public async Task<IActionResult> GetByIdAsync(long carId)
         => Ok(await _service.GetByIdAsync(carId));
 
-    [HttpDelete("{carId}")]
+    [HttpDelete]
+    [Route("{carId}")]
     [Authorize(Roles = "Admin")]
 
     public async Task<IActionResult> DeleteAsync(long carId)
@@ -46,8 +48,8 @@ public class CarController : ControllerBase
     public async Task<IActionResult> GetAllAsync([FromQuery] int page = 1)
         => Ok(await _service.GetAllAsync(new Paginationparams(page, maxPageSize)));
 
-    [HttpPut("{carId}")]
-    [Authorize(Roles = "Admin")]
+    [HttpPut]
+    [Route("{carId}")]
 
     public async Task<IActionResult> UpdateAsync(long carId, [FromForm] CarsUpdatedto dto)
     {
@@ -57,7 +59,8 @@ public class CarController : ControllerBase
         else return BadRequest(validatorResult.Errors);
     }
 
-    [HttpGet("count")]
+    [HttpGet]
+    [Route("count")]
     [AllowAnonymous]
 
     public async Task<IActionResult> CountAsync()

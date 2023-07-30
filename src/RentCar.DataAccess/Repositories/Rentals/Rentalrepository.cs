@@ -30,8 +30,8 @@ public class Rentalrepository : BaseRepository, IRentalRepository
         try
         {
             await _connecting.OpenAsync();
-            string query = "INSERT INTO public.rentals(start_date, end_date, destination, payment_type, is_payment, description, created_at, updated_at) " +
-                "VALUES (@StartDate, @EndDate, @Destination, @Payment, @IsPayment, @Description, @CreatedAt, @UpdatedAt);";
+            string query = "INSERT INTO public.rentals(days, destination, payment_type, is_payment, description, created_at, updated_at) " +
+                "VALUES (@Days, @Destination, @Payment, @IsPayment, @Description, @CreatedAt, @UpdatedAt);";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }
@@ -107,9 +107,9 @@ public class Rentalrepository : BaseRepository, IRentalRepository
         try
         {
             await _connecting.OpenAsync();
-            string query = "UPDATE public.rentals SET start_date=@StartDate, end_date=@EndDate, destination=@Destination, payment_type=@PaymentType, is_payment=@IsPayment, description=@Description, created_at=@CreatedAt, updated_at=@UpdatedAt " +
-                "WHERE id = @Id;";
-            var result = await _connecting.ExecuteAsync(query, new { Id = id });
+            string query = $"UPDATE public.rentals SET destination=@Destination, payment_type=@Payment, description=@Description, created_at=@CreatedAt, updated_at=@UpdatedAt " +
+                $"WHERE id = {id};";
+            var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }
         catch

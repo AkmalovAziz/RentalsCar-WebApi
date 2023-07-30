@@ -20,37 +20,28 @@ namespace RentCar.WebApi.Controllers
             this._service = service;
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-
-        public async Task<IActionResult> CreateAsync([FromForm] ClientCreateDto dto)
-        {
-            var clientcreatevalidator = new ClientCreateValidators();
-            var validatorResult = clientcreatevalidator.Validate(dto);
-            if (validatorResult.IsValid) return Ok(await _service.CreateAsync(dto));
-            else return BadRequest(validatorResult.Errors);
-        }
-
         [HttpGet]
         [AllowAnonymous]
 
         public async Task<IActionResult> GetAllAsync([FromQuery] int page = 1)
             => Ok(await _service.GetAllAsync(new Paginationparams(page, maxPageSize)));
 
-        [HttpGet("{clientId}")]
+        [HttpGet]
+        [Route("{clientId}")]
         [AllowAnonymous]
 
         public async Task<IActionResult> GetByIdAsync(long clientId)
             => Ok(await _service.GetByIdAsync(clientId));
 
-        [HttpDelete("{clientId}")]
-        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        [Route("{clientId}")]
+        [Authorize(Roles ="Admin")]
 
         public async Task<IActionResult> DeleteAsync(long clientId)
             => Ok(await _service.DeleteAsync(clientId));
 
-        [HttpPut("{clientId}")]
-        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        [Route("{clientId}")]
 
         public async Task<IActionResult> UpdateAsync(long clientId, [FromForm] ClientUpdateDto dto)
         {
@@ -60,7 +51,8 @@ namespace RentCar.WebApi.Controllers
             else return BadRequest(updateResult.Errors);
         }
 
-        [HttpGet("count")]
+        [HttpGet]
+        [Route("count")]
         [AllowAnonymous]
         public async Task<IActionResult> CountAsync()
             => Ok(await _service.CountAsync());

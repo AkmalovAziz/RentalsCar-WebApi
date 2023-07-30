@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentCar.Service.Dtos.Auth;
 using RentCar.Service.Interfaces.Auth;
 using RentCar.Service.Validators;
 using RentCar.Service.Validators.Dtos.Auth;
+using RentCar.Service.Validators.Dtos.Clients;
 
 namespace RentCar.WebApi.Controllers;
 
@@ -17,7 +19,8 @@ public class AuthController : ControllerBase
         this._authService = authService;
     }
 
-    [HttpPost("register")]
+    [HttpPost]
+    [Route("register")]
     [AllowAnonymous]
     public async Task<IActionResult> RegisterAsync([FromForm] RegistrDto registerDto)
     {
@@ -31,7 +34,8 @@ public class AuthController : ControllerBase
         else return BadRequest(result.Errors);
     }
 
-    [HttpPost("register/send-code")]
+    [HttpPost]
+    [Route("register/send-code")]
     [AllowAnonymous]
     public async Task<IActionResult> SendCodeRegisterAsync(string phone)
     {
@@ -42,7 +46,8 @@ public class AuthController : ControllerBase
         return Ok(new { serviceResult.Result, serviceResult.CachedVerificationMinutes });
     }
 
-    [HttpPost("register/verify")]
+    [HttpPost]
+    [Route("register/verify")]
     [AllowAnonymous]
 
     public async Task<IActionResult> VerifyRegisterAsync([FromBody] VerifyDto verifyRegisterDto)
@@ -51,7 +56,8 @@ public class AuthController : ControllerBase
         return Ok(new { serviceResult.Result, serviceResult.Token });
     }
 
-    [HttpPost("login")]
+    [HttpPost]
+    [Route("login")]
     [AllowAnonymous]
 
     public async Task<IActionResult> LoginAsync([FromBody] LoginDto loginDto)

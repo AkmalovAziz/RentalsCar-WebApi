@@ -32,8 +32,12 @@ public class CarService : ICarService
         string image = await _fileservis.UploadImageAsync(dto.ImagePath);
         Car car = new Car();
         car.ImagePath = image;
+
+        if (dto.PriceOfDate < 0)
+            throw new CarExpiredException();
+
         car.PriceOfDate = dto.PriceOfDate;
-        car.Status = dto.Status;
+        car.Status = 0;
         car.Model = dto.Model;
         car.Name = dto.Name;
         car.Description = dto.Description;
@@ -78,7 +82,6 @@ public class CarService : ICarService
 
         car.Name = dto.Name;
         car.Model = dto.Model;
-        car.Status = dto.Status;
         car.PriceOfDate = dto.PriceOfDate;
         car.Description = dto.Description;
 

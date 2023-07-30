@@ -27,6 +27,6 @@ public static class ServiceLayerConfiguration
         builder.Services.AddScoped<ITokenService, TokenService>();
         builder.Services.AddScoped<IPaginator, Paginator>();
         builder.Services.AddScoped<ITransactionService, TransactionService>();
-        //builder.Services.AddSingleton<ISmsSender, SmsSender>();
+        builder.Services.AddSingleton<ISmsSender, SmsSender>();
     }
 }

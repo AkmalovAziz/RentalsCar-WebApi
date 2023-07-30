@@ -16,5 +16,4 @@ public class TransactionCreateDto
 
     public string Description { get; set; } = string.Empty;
 
-    public float TotalPrice { get; set; }
 }

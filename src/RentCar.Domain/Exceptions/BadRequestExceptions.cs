@@ -2,9 +2,9 @@
 
 namespace RentCar.Domain.Exceptions;
 
-public class BadRequestExceptions : Exception
+public class BadRequestExceptions : ClientException
 {
-    public HttpStatusCode StatusCode { get; set; } = HttpStatusCode.BadRequest;
+    public override HttpStatusCode StatusCode { get; } = HttpStatusCode.BadRequest;
 
-    public string TitleMessage { get; protected set; } = string.Empty;
+    public override string TitleMessage { get; protected set; } = string.Empty;
 }

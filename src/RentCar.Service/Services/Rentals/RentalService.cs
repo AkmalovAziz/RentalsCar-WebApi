@@ -1,4 +1,5 @@
 ﻿using RentCar.DataAccess.Interfaces.Rentals;
+using RentCar.DataAccess.Interfaces.Transactions;
 using RentCar.DataAccess.Utils;
 using RentCar.Domain.Entities.Rentals;
 using RentCar.Domain.Exceptions.Rental;
@@ -26,8 +27,7 @@ public class RentalService : IRentalService
     public async Task<bool> CreateAsync(RentalsCreateDto dto)
     {
         var rental = new Rental();
-        rental.StartDate = dto.StartDate;
-        rental.EndDate = dto.EndDate;
+        rental.Days = dto.Days;
         rental.Destination = dto.Destination;
         rental.Payment = dto.Payment;
         rental.IsPayment = dto.IsPayment;

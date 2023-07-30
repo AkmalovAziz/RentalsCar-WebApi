@@ -1,5 +1,6 @@
 ﻿using RentCar.DataAccess.Interfaces.Clients;
 using RentCar.DataAccess.Utils;
+using RentCar.DataAccess.ViewModels.Clients;
 using RentCar.Domain.Entities.Clients;
 using RentCar.Domain.Exceptions.Client;
 using RentCar.Domain.Exceptions.Files;
@@ -29,25 +30,27 @@ public class ClientService : IClientService
 
     public async Task<bool> CreateAsync(ClientCreateDto dto)
     {
-        string image = await _fileservise.UploadImageAsync(dto.ImagePath);
-        Client client = new Client();
-        client.FirstName = dto.FirstName;
-        client.LastName = dto.LastName;
-        client.PhoneNumber = dto.PhoneNumber;
-        client.IsMale = dto.IsMale;
-        client.DriverLicense = dto.DriverLicense;
-        client.Role = dto.Role;
-        client.Description = dto.Description;
-        client.CreatedAt = TimeHelper.GetDateTime();
-        client.UpdatedAt = TimeHelper.GetDateTime();
+        //string image = await _fileservise.UploadImageAsync(dto.ImagePath);
+        //Client client = new Client();
+        //client.FirstName = dto.FirstName;
+        //client.LastName = dto.LastName;
+        //client.PhoneNumber = dto.PhoneNumber;
+        //client.IsMale = dto.IsMale;
+        //client.ImagePath = image;
+        //client.DriverLicense = dto.DriverLicense;
+        //client.Role = 0;
+        //client.Description = dto.Description;
+        //client.CreatedAt = TimeHelper.GetDateTime();
+        //client.UpdatedAt = TimeHelper.GetDateTime();
 
-        var result = await _repository.CreatAsync(client);
-        return result > 0;
+        //var result = await _repository.CreatAsync(client);
+        //return result > 0;
+        throw new NotImplementedException();
     }
 
     public async Task<bool> DeleteAsync(long clientId)
     {
-        var client = await _repository.GetByIdAsync(clientId);
+        var client = await _repository.GetIdAsync(clientId);
         if (client is null) throw new ClientNotFoundException();
 
         var image = await _fileservise.DeleteImageAsync(client.ImagePath);
@@ -57,7 +60,7 @@ public class ClientService : IClientService
         return result > 0;
     }
 
-    public async Task<IList<Client>> GetAllAsync(Paginationparams @params)
+    public async Task<IList<ClientViewModel>> GetAllAsync(Paginationparams @params)
     {
         var client = await _repository.GetAllAsync(@params);
         var count = await _repository.CountAsync();
@@ -65,7 +68,7 @@ public class ClientService : IClientService
         return client;
     }
 
-    public async Task<Client> GetByIdAsync(long clientId)
+    public async Task<ClientViewModel?> GetByIdAsync(long clientId)
     {
         var client = await _repository.GetByIdAsync(clientId);
         if (client is null) throw new ClientNotFoundException();
@@ -75,7 +78,7 @@ public class ClientService : IClientService
 
     public async Task<bool> UpdateAsync(long clientId, ClientUpdateDto dto)
     {
-        var client = await _repository.GetByIdAsync(clientId);
+        var client = await _repository.GetIdAsync(clientId);
         if (client is null) throw new ClientNotFoundException();
 
         client.FirstName = dto.FirstName;
@@ -87,9 +90,6 @@ public class ClientService : IClientService
 
         if (dto.ImagePath is not null)
         {
-            var image = await _fileservise.DeleteImageAsync(client.ImagePath);
-            if (image == false) throw new ImageNotFoundException();
-
             string newimage = await _fileservise.UploadImageAsync(dto.ImagePath);
             client.ImagePath = newimage;
         }

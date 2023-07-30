@@ -125,6 +125,8 @@ public class AuthService : IAuthService
         var hasherResult = PasswordHasher.Hash(registerDto.Password);
         client.PasswordHAsh = hasherResult.Hash;
         client.Salt = hasherResult.Salt;
+        client.Role = 0;
+        client.IsMale = true;
 
         client.CreatedAt = client.UpdatedAt = TimeHelper.GetDateTime();
 
@@ -134,13 +136,13 @@ public class AuthService : IAuthService
 
     public async Task<(bool Result, string Token)> LoginAsync(LoginDto loginDto)
     {
-        var user = await _clientRepository.GetByPhoneNumberAsync(loginDto.PhoneNumber);
-        if (user is null) throw new ClientNotFoundException();
+        var client = await _clientRepository.GetByPhoneNumberAsync(loginDto.PhoneNumber);
+        if (client is null) throw new ClientNotFoundException();
 
-        var hasherResult = PasswordHasher.Verify(loginDto.Password, user.PasswordHAsh, user.Salt);
+        var hasherResult = PasswordHasher.Verify(loginDto.Password, client.PasswordHAsh, client.Salt);
         if (hasherResult == false) throw new PasswordNotMatchExceptions();
 
-        string token = _token.GeneratedToken(user);
+        string token = _token.GeneratedToken(client);
         return (Result: true, Token: token);
     }
 }

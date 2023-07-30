@@ -15,13 +15,9 @@ public class ClientCreateDto
 
     public bool IsMale { get; set; }
 
-    public UserRole Role { get; set; }
-
     public IFormFile ImagePath { get; set; } = default!;
 
-    public string PasswordHAsh { get; set; } = string.Empty;
-
-    public string Salt { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
 
     public string Description { get; set; } = string.Empty;
 }

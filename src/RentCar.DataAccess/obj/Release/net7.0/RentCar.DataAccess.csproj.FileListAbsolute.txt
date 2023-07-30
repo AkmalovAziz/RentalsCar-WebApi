@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\bin\Release\net7.0\RentCar.DataAccess.deps.json
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\bin\Release\net7.0\RentCar.DataAccess.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\bin\Release\net7.0\RentCar.DataAccess.pdb
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\bin\Release\net7.0\RentCar.Domain.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\bin\Release\net7.0\RentCar.Domain.pdb
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.AssemblyInfo.cs
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.csproj.CopyComplete
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\refint\RentCar.DataAccess.dll
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\RentCar.DataAccess.pdb
+C:\Users\User\Desktop\RentalsCar-WebApi\src\RentCar.DataAccess\obj\Release\net7.0\ref\RentCar.DataAccess.dll

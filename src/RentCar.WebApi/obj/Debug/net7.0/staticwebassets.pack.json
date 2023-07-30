@@ -1,8 +1,28 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg",
-      "PackagePath": "staticwebassets\\media\\images\\IMG766f3dc0-6d75-4ba0-8624-263255cbaa70.jpeg"
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG089bbf2d-ee74-4988-b77a-2b3b9e470ac2.jpeg",
+      "PackagePath": "staticwebassets\\media\\images\\IMG089bbf2d-ee74-4988-b77a-2b3b9e470ac2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG51fa6756-1a09-41b7-98a5-d50418faceb4.jpg",
+      "PackagePath": "staticwebassets\\media\\images\\IMG51fa6756-1a09-41b7-98a5-d50418faceb4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG61cb098f-fc83-42b8-b9c1-53f0509c4679.jpg",
+      "PackagePath": "staticwebassets\\media\\images\\IMG61cb098f-fc83-42b8-b9c1-53f0509c4679.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMG9c325755-9b8e-4e6a-b917-a9575aec0747.jpg",
+      "PackagePath": "staticwebassets\\media\\images\\IMG9c325755-9b8e-4e6a-b917-a9575aec0747.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMGb20047b8-a761-473c-86d0-291bac348632.jpg",
+      "PackagePath": "staticwebassets\\media\\images\\IMGb20047b8-a761-473c-86d0-291bac348632.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.WebApi\\wwwroot\\media\\images\\IMGcac40f13-f28e-4c85-b54a-481e9bbbe584.jpg",
+      "PackagePath": "staticwebassets\\media\\images\\IMGcac40f13-f28e-4c85-b54a-481e9bbbe584.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.RentCar.WebApi.Microsoft.AspNetCore.StaticWebAssets.props",

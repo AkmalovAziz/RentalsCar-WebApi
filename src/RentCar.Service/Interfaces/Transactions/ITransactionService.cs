@@ -1,5 +1,5 @@
 ﻿using RentCar.DataAccess.Utils;
-using RentCar.DataAccess.ViewModels;
+using RentCar.DataAccess.ViewModels.Transactions;
 using RentCar.Domain.Entities.Transactions;
 using RentCar.Service.Dtos.Transactions;
 using System;
@@ -21,4 +21,6 @@ public interface ITransactionService
     public Task<IList<TransactionViewModel>> GetAllAsync(Paginationparams @params);
 
     public Task<long> CountAsync();
+
+    public Task<bool> UpdateAsync(long transactionId, TransactionUpdateDto dto);
 }

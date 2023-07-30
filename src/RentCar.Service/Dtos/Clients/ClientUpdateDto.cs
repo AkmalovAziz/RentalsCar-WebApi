@@ -16,9 +16,5 @@ public class ClientUpdateDto
 
     public IFormFile? ImagePath { get; set; }
 
-    public string PasswordHAsh { get; set; } = string.Empty;
-
-    public string Salt { get; set; } = string.Empty;
-
     public string Description { get; set; } = string.Empty;
 }

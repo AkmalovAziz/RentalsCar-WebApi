@@ -9,6 +9,8 @@ public class CarCreateValidatorTest
 {
     [Theory]
     [InlineData("AA")]
+    [InlineData(" AA")]
+    [InlineData("  AA")]
     [InlineData("A")]
     [InlineData("electronic products, we sell an electronic products to our clients, we sell an electronic products to our clients")]
     public void ShouldReturnInValidName(string name)
@@ -20,7 +22,6 @@ public class CarCreateValidatorTest
             Name = name,
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InRent,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -39,7 +40,6 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -65,7 +65,6 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -90,7 +89,6 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -114,7 +112,6 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -150,7 +147,6 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "chevrole",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InRent,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -172,7 +168,6 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = model,
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
             ImagePath = imageFile
         };
@@ -201,6 +196,7 @@ public class CarCreateValidatorTest
     [InlineData("aaaaaaaaaaaaaaaaa")]
     [InlineData("aaaaaaaaaaaaaaaaaa")]
     [InlineData("aaaaaaaaaaaaaaaaaaa")]
+    [InlineData("         jdnjnc")]
 
 
     public void ShouldReturnWrongDescription(string description)
@@ -212,12 +208,53 @@ public class CarCreateValidatorTest
             Name = "electronic products",
             Model = "Mazda",
             PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InRent,
             Description = description,
             ImagePath = imageFile
         };
         var validator = new CarCreateValidators();
         var result = validator.Validate(CarsCreateDto);
         Assert.False(result.IsValid);
+    }
+
+    [Theory]
+    [InlineData(000)]
+    [InlineData(-51551515)]
+
+    public void ShouldReturnWrongPrice(float price)
+    {
+        byte[] byteImage = Encoding.UTF8.GetBytes("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
+        IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, byteImage.Length, "data", "file.bmp");
+        CarsCreateDto CarsCreateDto = new CarsCreateDto()
+        {
+            Name = "electronic products",
+            Model = "Mazda",
+            PriceOfDate = price,
+            Description = "bsdbvdsvjdsnvjdsvnjsdbvhsdbj",
+            ImagePath = imageFile
+        };
+        var validator = new CarCreateValidators();
+        var result = validator.Validate(CarsCreateDto);
+        Assert.False(result.IsValid);
+    }
+
+    [Theory]
+    [InlineData(22121)]
+    [InlineData(12.151)]
+    [InlineData(0.212112)]
+    public void ShouldReturnValidPrice(float price)
+    {
+        byte[] byteImage = Encoding.UTF8.GetBytes("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
+        IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, byteImage.Length, "data", "file.bmp");
+        CarsCreateDto CarsCreateDto = new CarsCreateDto()
+        {
+            Name = "electronic products",
+            Model = "Mazda",
+            PriceOfDate = price,
+            Description = "bsdbvdsvjdsnvjdsvnjsdbvhsdbj",
+            ImagePath = imageFile
+        };
+        var validator = new CarCreateValidators();
+        var result = validator.Validate(CarsCreateDto);
+        Assert.True(result.IsValid);
     }
 }

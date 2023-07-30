@@ -2,9 +2,9 @@
 
 namespace RentCar.Domain.Exceptions;
 
-public class ExpiredExceptions : Exception
+public class ExpiredExceptions : ClientException
 {
-    public HttpStatusCode StatusCode { get; } = HttpStatusCode.Gone;
+    public override HttpStatusCode StatusCode { get; } = HttpStatusCode.Gone;
 
-    public string TitleMessage { get; protected set; } = string.Empty;
+    public override string TitleMessage { get; protected set; } = string.Empty;
 }

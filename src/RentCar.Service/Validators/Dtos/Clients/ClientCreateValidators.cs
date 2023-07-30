@@ -33,7 +33,7 @@ public class ClientCreateValidators : AbstractValidator<ClientCreateDto>
             return MediaHelpers.GetImageExtension().Contains(fileInfo.Extension);
         }).WithMessage("This file type is not image file");
 
-        RuleFor(dto => dto.PasswordHAsh).Must(password => PasswordValidators.IsStrongPassword(password).IsValid)
+        RuleFor(dto => dto.Password).Must(password => PasswordValidators.IsStrongPassword(password).IsValid)
             .WithMessage("Password is not strong password!");
 
         RuleFor(dto => dto.Description).NotNull().NotEmpty().WithMessage("Description filed is required!")

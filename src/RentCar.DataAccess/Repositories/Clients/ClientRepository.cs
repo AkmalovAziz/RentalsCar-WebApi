@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using RentCar.DataAccess.Interfaces.Clients;
 using RentCar.DataAccess.Utils;
+using RentCar.DataAccess.ViewModels.Clients;
 using RentCar.Domain.Entities.Clients;
 using static Dapper.SqlMapper;
 
@@ -34,7 +35,7 @@ public class ClientRepository : BaseRepository, IClientRepository
             await _connecting.OpenAsync();
             string query = "INSERT INTO public.clients( " +
                    "first_name, last_name, phone_number, drivers_license, is_male, image_path, password_hash, salt, role, description, created_at, updated_at) " +
-                   "VALUES(@FirstName, @LastName, @PhoneNumber, @DriversLicense, @IsMale, @ImagePath, @PasswordHAsh, @Salt, @Role, @Description, @CreatedAt, @UpdatedAt); ";
+                   "VALUES(@FirstName, @LastName, @PhoneNumber, @DriverLicense, @IsMale, @ImagePath, @PasswordHAsh, @Salt, @Role, @Description, @CreatedAt, @UpdatedAt); ";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }
@@ -67,19 +68,19 @@ public class ClientRepository : BaseRepository, IClientRepository
         }
     }
 
-    public async Task<IList<Client>> GetAllAsync(Paginationparams @params)
+    public async Task<IList<ClientViewModel>> GetAllAsync(Paginationparams @params)
     {
         try
         {
             await _connecting.OpenAsync();
             string query = $"SELECT * FROM public.clients order by id desc " +
-                $"offset{@params.SkipCount()} limit{@params.PageSize}";
-            var result = (await _connecting.QueryAsync<Client>(query)).ToList();
+                $"offset {@params.SkipCount()} limit {@params.PageSize}";
+            var result = (await _connecting.QueryAsync<ClientViewModel>(query)).ToList();
             return result;
         }
         catch
         {
-            return new List<Client>();
+            return new List<ClientViewModel>();
         }
         finally
         {
@@ -87,7 +88,45 @@ public class ClientRepository : BaseRepository, IClientRepository
         }
     }
 
-    public async Task<Client?> GetByIdAsync(long id)
+    public async Task<ClientViewModel?> GetByIdAsync(long id)
+    {
+        try
+        {
+            await _connecting.OpenAsync();
+            string query = "SELECT * FROM public.clients where id = @Id";
+            var result = await _connecting.QuerySingleAsync<ClientViewModel>(query, new { Id = id });
+            return result;
+        }
+        catch
+        {
+            return null;
+        }
+        finally
+        {
+            await _connecting.CloseAsync();
+        }
+    }
+
+    public async Task<Client?> GetByPhoneNumberAsync(string phone)
+    {
+        try
+        {
+            await _connecting.OpenAsync();
+            string query = "SELECT * FROM public.clients where phone_number = @PhoneNumber";
+            var data = await _connecting.QuerySingleAsync<Client>(query, new { PhoneNumber = phone });
+            return data;
+        }
+        catch
+        {
+            return null;
+        }
+        finally
+        {
+            await _connecting.CloseAsync();
+        }
+    }
+
+    public async Task<Client?> GetIdAsync(long id)
     {
         try
         {
@@ -106,26 +145,7 @@ public class ClientRepository : BaseRepository, IClientRepository
         }
     }
 
-    public async Task<Client?> GetByPhoneNumberAsync(string phone)
-    {
-        try
-        {
-            await _connecting.OpenAsync();
-            string query = "SELECT * FROM users where phone_number = @PhoneNumber";
-            var data = await _connecting.QuerySingleAsync<Client>(query, new { PhoneNumber = phone });
-            return data;
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            await _connecting.CloseAsync();
-        }
-    }
-
-    public async Task<(int ItemsCount, IList<Client>)> SearchAsync(string search, Paginationparams @params)
+    public async Task<(int ItemsCount, IList<ClientViewModel>)> SearchAsync(string search, Paginationparams @params)
     {
         throw new NotImplementedException();
     }
@@ -136,8 +156,8 @@ public class ClientRepository : BaseRepository, IClientRepository
         {
             await _connecting.OpenAsync();
             string query = $"UPDATE public.clients SET " +
-                $"first_name=@FirstName, last_name=@LastName, phone_number=@PhoneNumber, drivers_license=@DriversLicense, " +
-                $"is_male=@IsMale, image_path=@ImagePath, description=@Description, created_at=@reatedAt, updated_at=@UpdatedAt WHERE <id = {id}>;";
+                $"first_name=@FirstName, last_name=@LastName, phone_number=@PhoneNumber, drivers_license=@DriverLicense, " +
+                $"is_male=@IsMale, image_path=@ImagePath, description=@Description, created_at=@CreatedAt, updated_at=@UpdatedAt WHERE id = {id};";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }

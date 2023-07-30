@@ -12,8 +12,7 @@ create table cars (
 
 create table rentals (
 	id bigint generated always as identity primary key,
-	start_date timestamp with time zone,
-	end_date timestamp with time zone,
+	days int,
 	destination text,
 	payment_type text,
 	is_payment bool,

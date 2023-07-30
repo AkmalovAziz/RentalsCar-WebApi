@@ -9,8 +9,6 @@ public class CarsCreateDto
 
     public string Model { get; set; } = string.Empty;
 
-    public CarStatus Status { get; set; }
-
     public IFormFile ImagePath { get; set; } = default!;
 
     public float PriceOfDate { get; set; }

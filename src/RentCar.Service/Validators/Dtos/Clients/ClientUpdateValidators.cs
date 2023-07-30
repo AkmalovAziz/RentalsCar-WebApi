@@ -22,8 +22,6 @@ public class ClientUpdateValidators : AbstractValidator<ClientUpdateDto>
         RuleFor(dto => dto.DriverLicense).Must(driverlicense => DriverLicenseValidators.IsValid(driverlicense))
             .WithMessage("Driver Lincense is invalid ex: AA123456");
 
-        RuleFor(dto => dto.IsMale).NotNull().NotEmpty().WithMessage("Gender filed is required!");
-
         When(dto => dto.ImagePath is not null, () =>
         {
             int maxImageSizeMB = 3;
@@ -34,9 +32,6 @@ public class ClientUpdateValidators : AbstractValidator<ClientUpdateDto>
                 return MediaHelpers.GetImageExtension().Contains(fileInfo.Extension);
             }).WithMessage("This file type is not image file");
         });
-
-        RuleFor(dto => dto.PasswordHAsh).Must(password => PasswordValidators.IsStrongPassword(password).IsValid)
-            .WithMessage("Password is not strong password!");
 
         RuleFor(dto => dto.Description).NotNull().NotEmpty().WithMessage("Description filed is required!")
             .MinimumLength(20).WithMessage("Description must be more than 20 characters");

@@ -29,25 +29,29 @@ namespace RentCar.WebApi.Controllers
             else return BadRequest(resultValidator.Errors);
         }
 
-        [HttpGet("{rentalId}")]
+        [HttpGet]
+        [Route("{rentalId}")]
         [AllowAnonymous]
 
         public async Task<IActionResult> GetByIdAsync(long rentalId)
             => Ok(await _service.GetByIdAsync(rentalId));
 
-        [HttpDelete("{rentalId}")]
+        [HttpDelete]
+        [Route("{rentalId}")]
         [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> DeleteAsync(long rentalId)
             => Ok(await _service.DeleteAsync(rentalId));
 
-        [HttpGet("count")]
+        [HttpGet]
+        [Route("count")]
         [AllowAnonymous]
 
         public async Task<IActionResult> CountAsync()
             => Ok(await _service.CountAsync());
 
-        [HttpPut("{rentalId}")]
+        [HttpPut]
+        [Route("{rentalId}")]
         [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> UpdateAsync(long rentalId, [FromForm] RentalsUpdateDto dto)

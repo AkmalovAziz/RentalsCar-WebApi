@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Dapper;
+using Npgsql;
 
 namespace RentCar.DataAccess.Repositories;
 
@@ -8,6 +9,7 @@ public class BaseRepository
 
     public BaseRepository()
     {
+        Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
         this._connecting = new NpgsqlConnection("Host=localhost; Port=5432; Database=RentalsCar-db; User Id=postgres; Password=1111;");
     }
 }

@@ -2,5 +2,5 @@
 
 public enum PaymentType
 {
-    ByCard, ByCache
+    ByCard=0, ByCache=1
 }

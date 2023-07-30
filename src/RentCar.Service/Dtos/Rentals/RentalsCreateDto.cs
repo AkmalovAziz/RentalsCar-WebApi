@@ -4,9 +4,7 @@ namespace RentCar.Service.Dtos.Rentals;
 
 public class RentalsCreateDto
 {
-    public string StartDate { get; set; } = string.Empty;
-
-    public string EndDate { get; set; } = string.Empty;
+    public int Days { get; set; }
 
     public string Destination { get; set; } = string.Empty;
 

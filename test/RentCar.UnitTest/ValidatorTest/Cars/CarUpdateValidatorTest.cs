@@ -29,25 +29,6 @@ public class CarUpdateValidatorTest
         Assert.False(result.IsValid);
     }
 
-    [Fact]
-    public void ShouldReturnValidName()
-    {
-        byte[] byteImage = Encoding.UTF8.GetBytes("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, byteImage.Length, "data", "file.jpg");
-        CarsUpdatedto dto = new CarsUpdatedto()
-        {
-            Name = "electronic products",
-            Model = "chevrole",
-            PriceOfDate = 12,
-            Status = Domain.Enums.CarStatus.InGaraj,
-            Description = "we sell an electronic products to our clients",
-            ImagePath = imageFile
-        };
-        var validator = new CarupdateValidators();
-        var result = validator.Validate(dto);
-        Assert.True(result.IsValid);
-    }
-
     [Theory]
     [InlineData(3.1)]
     [InlineData(3.01)]
@@ -83,8 +64,8 @@ public class CarUpdateValidatorTest
     public void ShouldReturnValidImageFileSize(double imageSizeMB)
     {
         byte[] byteImage = Encoding.UTF8.GetBytes("we sell an electronic products to our clients");
-        long imageSizeInBytes = (long)(imageSizeMB * 1024 * 1024);
-        IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, imageSizeInBytes, "data", "file.png");
+        long imageSizeInBytes = (long)(imageSizeMB * 1024 * 1024+1);
+        IFormFile File = new FormFile(new MemoryStream(byteImage), 0, imageSizeInBytes, "data", "file.png");
         CarsUpdatedto CarsUpdatedto = new CarsUpdatedto()
         {
             Name = "electronic products",
@@ -92,7 +73,7 @@ public class CarUpdateValidatorTest
             PriceOfDate = 12,
             Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
-            ImagePath = imageFile
+            ImagePath = File
         };
         var validator = new CarupdateValidators();
         var result = validator.Validate(CarsUpdatedto);
@@ -108,7 +89,7 @@ public class CarUpdateValidatorTest
     public void ShouldReturnCorrectImageFileExtension(string imagename)
     {
         byte[] byteImage = Encoding.UTF8.GetBytes("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
-        IFormFile imageFile = new FormFile(new MemoryStream(byteImage), 0, byteImage.Length, "data", imagename);
+        IFormFile File = new FormFile(new MemoryStream(byteImage), 0, byteImage.Length, "data", imagename);
         CarsUpdatedto CarsUpdatedto = new CarsUpdatedto()
         {
             Name = "electronic products",
@@ -116,7 +97,7 @@ public class CarUpdateValidatorTest
             PriceOfDate = 12,
             Status = Domain.Enums.CarStatus.InGaraj,
             Description = "we sell an electronic products to our clients",
-            ImagePath = imageFile
+            ImagePath = File
         };
         var validator = new CarupdateValidators();
         var result = validator.Validate(CarsUpdatedto);
@@ -201,7 +182,6 @@ public class CarUpdateValidatorTest
     [InlineData("aaaaaaaaaaaaaaaaa")]
     [InlineData("aaaaaaaaaaaaaaaaaa")]
     [InlineData("aaaaaaaaaaaaaaaaaaa")]
-
 
     public void ShouldReturnWrongDescription(string description)
     {

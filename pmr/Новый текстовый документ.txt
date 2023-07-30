@@ -1,0 +1,5 @@
+select cars.name, cars.image_path, cars.price_of_date, clients.first_name, clients.last_name, clients.phone_number,
+rentals.start_date, rentals.end_date, rentals.payment_type, transactions.description from transactions
+join cars on transactions.car_id = cars.id
+join clients on transactions.client_id = clients.id
+join rentals on transactions.rental_id = rentals.id

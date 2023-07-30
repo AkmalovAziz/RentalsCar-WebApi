@@ -8,7 +8,7 @@ public class DriverLicenseValidators
 
         for (int i = 0; i < 2; i++)
         {
-            if (!char.IsDigit(driverlicense[i])) continue;
+            if (char.IsUpper(driverlicense[i])) continue;
             else return false;
         }
 

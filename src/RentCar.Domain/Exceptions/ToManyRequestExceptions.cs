@@ -2,9 +2,9 @@
 
 namespace RentCar.Domain.Exceptions;
 
-public class ToManyRequestExceptions : Exception
+public class ToManyRequestExceptions : ClientException
 {
-    public HttpStatusCode StatusCode { get; } = HttpStatusCode.TooManyRequests;
+    public override HttpStatusCode StatusCode { get; } = HttpStatusCode.TooManyRequests;
 
-    public string TitleMessage { get; protected set; } = string.Empty;
+    public override string TitleMessage { get; protected set; } = string.Empty;
 }

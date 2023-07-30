@@ -2,5 +2,5 @@
 
 public enum CarStatus
 {
-    InRent, InGaraj
+    InRent=1, InGaraj=0
 }

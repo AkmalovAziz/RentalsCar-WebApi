@@ -1,4 +1,5 @@
 ﻿using RentCar.DataAccess.Utils;
+using RentCar.DataAccess.ViewModels.Clients;
 using RentCar.Domain.Entities.Clients;
 using RentCar.Service.Dtos.Clients;
 
@@ -8,9 +9,9 @@ public interface IClientService
 {
     public Task<bool> CreateAsync(ClientCreateDto dto);
 
-    public Task<IList<Client>> GetAllAsync(Paginationparams @params);
+    public Task<IList<ClientViewModel>> GetAllAsync(Paginationparams @params);
 
-    public Task<Client> GetByIdAsync(long clientId);
+    public Task<ClientViewModel> GetByIdAsync(long clientId);
 
     public Task<bool> DeleteAsync(long clientId);
 

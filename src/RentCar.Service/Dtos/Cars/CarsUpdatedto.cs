@@ -9,8 +9,6 @@ public class CarsUpdatedto
 
     public string Model { get; set; } = string.Empty;
 
-    public CarStatus Status { get; set; }
-
     public IFormFile? ImagePath { get; set; }
 
     public float PriceOfDate { get; set; }

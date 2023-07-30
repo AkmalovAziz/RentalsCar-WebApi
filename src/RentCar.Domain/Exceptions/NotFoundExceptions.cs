@@ -2,9 +2,9 @@
 
 namespace RentCar.Domain.Exceptions;
 
-public class NotFoundExceptions : Exception
+public class NotFoundExceptions : ClientException
 {
-    public HttpStatusCode Statuscode { get; } = HttpStatusCode.NotFound;
+    public override HttpStatusCode StatusCode { get; } = HttpStatusCode.NotFound;
 
-    public string TitleMessage { get; protected set; } = string.Empty;
+    public override string TitleMessage { get; protected set; } = string.Empty;
 }

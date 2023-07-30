@@ -1,11 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RentCar.Service.Dtos.Notification;
+using RentCar.Service.Interfaces.Notification;
 using System.Net;
 
 namespace RentCar.Service.Services.Notification;
 
-public class SmsSender
+public class SmsSender : ISmsSender
 {
     private readonly string BASE_URL = "";
     private readonly string API_KEY = "";
