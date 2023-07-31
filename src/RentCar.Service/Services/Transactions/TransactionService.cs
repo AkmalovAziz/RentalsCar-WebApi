@@ -91,10 +91,21 @@ public class TransactionService : ITransactionService
         var transaction = await _repository.GetIdAsync(transactionId);
         if (transaction is null) throw new TransactionNotFoundException();
 
+        var car = await _carRepository.GetByIdAsync(dto.CarId);
+        if (car is null) throw new CarNotFoundException();
+
+        var rental = await _rentalRepository.GetByIdAsync(dto.RentalId);
+        if (rental is null) throw new RentalNotFoundException();
+
+        var client = await _clientRepository.GetByIdAsync(dto.ClientId);
+        if (rental is null) throw new ClientNotFoundException();
+
         transaction.CarId = dto.CarId;
         transaction.RentalId = dto.RentalId;
         transaction.ClientId = dto.ClientId;
         transaction.Description = dto.Description;
+        transaction.TotalPrice = (car.PriceOfDate * rental.Days);
+
         transaction.UpdatedAt = TimeHelper.GetDateTime();
 
         var dbResult = await _repository.UpdateAsync(transactionId, transaction);

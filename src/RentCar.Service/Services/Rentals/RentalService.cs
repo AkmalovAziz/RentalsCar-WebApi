@@ -65,7 +65,6 @@ public class RentalService : IRentalService
         if (rental is null) throw new RentalNotFoundException();
 
         rental.Destination = dto.Destination;
-        rental.Payment = dto.Payment;
         rental.Description = dto.Description;
         rental.UpdatedAt = TimeHelper.GetDateTime();
 

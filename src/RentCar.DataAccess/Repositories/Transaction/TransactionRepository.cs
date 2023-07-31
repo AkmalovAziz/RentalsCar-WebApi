@@ -136,7 +136,7 @@ public class TransactionRepository : BaseRepository, ITransactionRepository
         try
         {
             await _connecting.OpenAsync();
-            string query = $"UPDATE transactions SET car_id=@CarId, rental_id=@RentalId, client_id=@ClientId, description=@Description Where id = {id};";
+            string query = $"UPDATE transactions SET car_id=@CarId, rental_id=@RentalId, client_id=@ClientId, total_price=@TotalPrice, description=@Description Where id = {id};";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
         }

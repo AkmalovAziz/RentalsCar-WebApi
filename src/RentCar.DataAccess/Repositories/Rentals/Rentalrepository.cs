@@ -107,7 +107,7 @@ public class Rentalrepository : BaseRepository, IRentalRepository
         try
         {
             await _connecting.OpenAsync();
-            string query = $"UPDATE public.rentals SET destination=@Destination, payment_type=@Payment, description=@Description, created_at=@CreatedAt, updated_at=@UpdatedAt " +
+            string query = $"UPDATE public.rentals SET destination=@Destination, description=@Description, created_at=@CreatedAt, updated_at=@UpdatedAt " +
                 $"WHERE id = {id};";
             var result = await _connecting.ExecuteAsync(query, entity);
             return result;
