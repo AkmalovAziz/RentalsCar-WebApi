@@ -30,21 +30,6 @@ public class ClientService : IClientService
 
     public async Task<bool> CreateAsync(ClientCreateDto dto)
     {
-        //string image = await _fileservise.UploadImageAsync(dto.ImagePath);
-        //Client client = new Client();
-        //client.FirstName = dto.FirstName;
-        //client.LastName = dto.LastName;
-        //client.PhoneNumber = dto.PhoneNumber;
-        //client.IsMale = dto.IsMale;
-        //client.ImagePath = image;
-        //client.DriverLicense = dto.DriverLicense;
-        //client.Role = 0;
-        //client.Description = dto.Description;
-        //client.CreatedAt = TimeHelper.GetDateTime();
-        //client.UpdatedAt = TimeHelper.GetDateTime();
-
-        //var result = await _repository.CreatAsync(client);
-        //return result > 0;
         throw new NotImplementedException();
     }
 

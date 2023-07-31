@@ -1091,11 +1091,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\My projects\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
       "projectName": "RentCar.Service",
-      "projectPath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\My projects\\RentalsCar-WebApi\\src\\RentCar.Service\\RentCar.Service.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.Service\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\My projects\\RentalsCar-WebApi\\src\\RentCar.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1112,8 +1112,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.DataAccess\\RentCar.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\RentalsCar-WebApi\\src\\RentCar.DataAccess\\RentCar.DataAccess.csproj"
+            "C:\\Users\\User\\Documents\\My projects\\RentalsCar-WebApi\\src\\RentCar.DataAccess\\RentCar.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\My projects\\RentalsCar-WebApi\\src\\RentCar.DataAccess\\RentCar.DataAccess.csproj"
             }
           }
         }
